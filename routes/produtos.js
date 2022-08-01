@@ -3,6 +3,7 @@ const router = express.Router();
 
 //RETORNA TODOS OS PRODUTOS
 router.get('/', (req, res, next)=>{
+    
     res.status(200).send({
         mensagem: 'retorna os produtos'
     });
@@ -10,8 +11,13 @@ router.get('/', (req, res, next)=>{
 
 //INSERE UM PRODOTO
 router.post('/', (req, res, next)=>{
+    const produto = {
+        nome: req.body.nome,
+         preco: req.body.preco
+     }
     res.status(201).send({
-        mensagem: 'Produto criado'
+        mensagem: 'Produto criado',
+        produtoCriado: produto
     });
 }); 
 
