@@ -147,7 +147,7 @@ router.delete('/', (req, res, next)=>{
                     mensagem: 'Produto removido com sucesso',
                     request:{
                         tipo:'POST',
-                        descricao: 'Insere um prosuto',
+                        descricao: 'Insere um produto',
                         url: 'http://localhost:3000/produtos',
                         body:{
                             nome: 'Stribg',
