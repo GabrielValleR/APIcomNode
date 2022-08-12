@@ -7,7 +7,15 @@ exports.obrigatorio = (req, res, next) => {
         req.usuario = decode;
         next()
     }catch(error){
-        return res.status(401).send({mensagem: 'Falha na autenticação'});
+        return res.status(401).send(
+            {
+                mensagem: 'Falha na autenticação',
+                request: {
+                    tipo: 'GET',
+                    descricao: 'Faça o logim para ter acesso a está função',
+                    url: 'http://localhost:3000/usuarios/login '
+                }
+            });
     }
 }
 
