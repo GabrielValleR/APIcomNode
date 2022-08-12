@@ -4,10 +4,13 @@ const morgan = require('morgan');
 const bodyParser = require('body-parser');
 
 
+
 const rotaProdutos = require('./routes/produtos');
 const rotaPedidos = require('./routes/pedidos');
+const rotaUsuario = require('./routes/usuarios')
 
 app.use(morgan('dev'));
+app.use('/uploads', express.static('uploads'));
 app.use(bodyParser.urlencoded({extended:false}))// apenas dadaos simples
 app.use(bodyParser.json());//so aceitamos json de entrada no body
 
@@ -28,6 +31,7 @@ app.use((req,res,next)=>{
 
 app.use('/produtos', rotaProdutos); 
 app.use('/pedidos', rotaPedidos); 
+app.use('/usuarios',rotaUsuario);
 
 //QUANDO NÃO ENCONTRA ROTA
 app.use((req,res,next)=>{
